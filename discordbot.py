@@ -47,16 +47,5 @@ async def hello(ctx):
     await ctx.send(f"サーバー情報\nSpigot1.17.1\n...")
 
 
-@bot.command(name="")
-async def hello(ctx):
-    await ctx.send(f"")
-
-
-@bot.command(name="")
-async def hello(ctx):
-    await ctx.send(f"")
-
-
-
 token = getenv('DISCORD_BOT_TOKEN')
 bot.run(token)
