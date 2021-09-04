@@ -16,10 +16,11 @@ async def on_command_error(ctx, error):
 async def ping(ctx):
     await ctx.send('pong')
 
-@bot.command()
-async def test(ctx):
-    await ctx.send('hmm')
-
+client.on("message",(msg) => {
+          if (msg.context === "hello") {
+          msg.reply("hello!");
+          }
+})
 
 token = getenv('DISCORD_BOT_TOKEN')
 bot.run(token)
