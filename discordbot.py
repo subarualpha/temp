@@ -11,16 +11,23 @@ async def on_command_error(ctx, error):
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)
 
-
 @bot.command()
 async def ping(ctx):
     await ctx.send('pong')
 
-client.on("message",(msg) => {
-          if (msg.context === "hello") {
-          msg.reply("hello!");
-          }
-})
+@client.event
+async def on_ready():
+    # 起動したらターミナルにログイン通知が表示される
+    print('起動')@
+
+@client.event
+async def on_message(message):
+    # メッセージ送信者がBotだった場合は無視する
+    if message.author.bot:
+        return
+    # 「/neko」と発言したら「にゃーん」が返る処理
+    if message.content == 'test':
+        await message.channel.send('hmm')
 
 token = getenv('DISCORD_BOT_TOKEN')
 bot.run(token)
