@@ -8,7 +8,7 @@ bot = commands.Bot(command_prefix='help.')
 @bot.event
 async def on_command_error(ctx, error):
     orig_error = getattr(error, "original", error)
-    error_msg = 'エラーメッセージ'
+    error_msg = 'その質問に対してはまだ未実装です。運営又はサポートに問い合わせしてください'
     await ctx.send(error_msg)
 
 
