@@ -47,28 +47,5 @@ async def hello(ctx):
     await ctx.send(f"サーバー情報\nSpigot1.17.1\n...")
 
 
-@client.event
-async def on_message(message):
-    username = str(message.author).split('#')[0]
-    user_message = str(message.content)
-    channel = str(message.channel.name)
-    print(f'{username}:{user_message}({channel}')
-    
-    if message.author == client.user:
-        return
-    
-    if message.channel.name == '試験段階用-自動返信サポート':
-        if user_message.lower() == 'hello':
-            await message.channel.send(f'hello {username}!')
-            return
-        elif username.lower() == 'bye':
-            await message.channel.send(f'see you later {username}!')
-            return
-        elif username.lower() == '!random':
-            response = f'This is your random number: {random.randrange(100)}'
-            await message.channel.send(response)
-            return
-          
-
 token = getenv('DISCORD_BOT_TOKEN')
 bot.run(token)
