@@ -69,5 +69,6 @@ async def on_message(message):
             await message.channel.send(response)
             return
           
+
 token = getenv('DISCORD_BOT_TOKEN')
 bot.run(token)
